@@ -1,0 +1,135 @@
+type: collection.insomnia.rest/5.0
+name: Task Manager
+meta:
+  id: wrk_6ce7f783f23448e99bc45a7eba520449
+  created: 1748805485498
+  modified: 1748805485498
+collection:
+  - name: Task
+    meta:
+      id: fld_d4d25362647240a78b3115d4351e87b0
+      created: 1748805494873
+      modified: 1748805559125
+      sortKey: -1748805494873
+    children:
+      - url: "{{ _[''].BASE_URL }}/{{ _[''].RESOURCERS }}"
+        name: Index
+        meta:
+          id: req_318cf5ebf7a844f7b2a4b6180f86db8b
+          created: 1748805581083
+          modified: 1748805996843
+          isPrivate: false
+          sortKey: -1748805581083
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    environment:
+      "":
+        RESOURCERS: task
+  - name: User
+    meta:
+      id: fld_2d711b6cacf54666a7d0ccf3de1728e0
+      created: 1748810172993
+      modified: 1748810191826
+      sortKey: -1748810172993
+    children:
+      - url: "{{ _[''].BASE_URL }}/{{ _[''].RESOURCES }}"
+        name: Create
+        meta:
+          id: req_5a1b4d5f8f80486c9131ade3ade41db0
+          created: 1748810178985
+          modified: 1748812793871
+          isPrivate: false
+          sortKey: -1748810178985
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Julio Castro",
+            	"email": "juliocastro.contato@gmail.com",
+            	"password": "123456"
+            }
+        parameters:
+          - id: pair_4eac160d79c444e1af0ab6a118b0299a
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    environment:
+      "":
+        RESOURCES: user
+  - name: Session
+    meta:
+      id: fld_6614433357ce4dbbb4d1b8be664731fa
+      created: 1748814344856
+      modified: 1748814366296
+      sortKey: -1748814344856
+    children:
+      - url: "{{ _[''].BASE_URL }}/{{ _[''].RESOURCES }}"
+        name: Create
+        meta:
+          id: req_6359a4facf924da789e95f7a23c15276
+          created: 1748814346952
+          modified: 1748814388928
+          isPrivate: false
+          sortKey: -1748814346952
+        method: POST
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    environment:
+      "":
+        RESOURCES: session
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_586cd754d7eb1e82a6db0cc7438907a8e26fb894
+    created: 1748805485503
+    modified: 1748805485503
+environments:
+  name: Base Environment
+  meta:
+    id: env_586cd754d7eb1e82a6db0cc7438907a8e26fb894
+    created: 1748805485501
+    modified: 1748805485501
+    isPrivate: false
+  subEnvironments:
+    - name: Dev
+      meta:
+        id: env_a1aa2641b1384377b84c3e092fabaf34
+        created: 1748805502129
+        modified: 1748805620917
+        isPrivate: false
+        sortKey: 1748805502129
+      data:
+        "":
+          BASE_URL: http://localhost:3333
+      color: "#0212ed"
