@@ -1,6 +1,6 @@
 services:
 
-  db:
+  apiTask:
     image: bitnami/postgresql:latest
     environment:
       POSTGRES_PASSWORD: postgres
