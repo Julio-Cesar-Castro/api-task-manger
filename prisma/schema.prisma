@@ -57,10 +57,10 @@ model TeamMember {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now()) @map("created_at")
 
-  teamId String @unique
+  teamId String @unique @map("team_id")
   teams  Teams  @relation(fields: [teamId], references: [id])
 
-  userId String @unique
+  userId String @unique @map("user_id")
   user   User   @relation(fields: [userId], references: [id])
 
   @@map("team_member")
@@ -73,7 +73,7 @@ model Task {
   status      Status   @default(pending)
   priority    Priority @default(low)
 
-  teamId String
+  teamId String @map("team_id")
   teams  Teams  @relation(fields: [teamId], references: [id])
 
   assignedTo String @map("assigned_to")
@@ -89,7 +89,7 @@ model Task {
 model TaskHistory {
   id String @id @default(uuid())
 
-  taskId String
+  taskId String @map("task_id")
   task   Task   @relation(fields: [taskId], references: [id])
 
   changedBy String @map("changed_by")

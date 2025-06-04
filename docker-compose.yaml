@@ -1,9 +1,15 @@
-services:
-
-  apiTask:
-    image: bitnami/postgresql:latest
-    environment:
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_USER: postgres
+services: 
+  postgres:
+    image: "bitnami/postgresql:latest"
+    container_name: api_container
+    volumes:
+      - database:/bitnami/postgresql
     ports:
-      - 5432:5432
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: apitask
+
+volumes:
+ database:
