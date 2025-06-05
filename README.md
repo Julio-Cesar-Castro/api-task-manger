@@ -15,19 +15,19 @@ Com intuito de praticar novas tecnolóligas essa API tras algumas regras que dev
 ## Regra de negócio
 ### Gerenciamento de Times
 - [x] Apenas usuários admin pode criar e editar times.
-- [ ] Apenas usuários admin pode adicionar ou remover membros do time.
+- [x] Apenas usuários admin pode adicionar ou remover membros do time.
 
 ### Tarefas
 - [x] CRUD de tarefas.
-- [x] Status: "Pendente", "Em progresso", "Concluído".
-- [x] Prioridade: "Alta", "Média", "Baixa".
+- [ ] Status: "Pendente", "Em progresso", "Concluído".
+- [ ] Prioridade: "Alta", "Média", "Baixa".
 - [ ] Atribuição de tarefas para membros específicos.
 
 ### Usuário Admin
-- [x] Visualizar e gerenciar todas as tarefas, usuários e times.
+- [ ] Visualizar e gerenciar todas as tarefas, usuários e times.
 
 ### Membros
-- [x] Visualiza tarefas do time.
+- [ ] Visualiza tarefas do time.
 - [ ] Pode editar apenas suas tarefas.
 
 ##

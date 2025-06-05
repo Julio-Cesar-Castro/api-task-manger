@@ -10,3 +10,4 @@ const teamController = new TeamController()
 
 
 teamRoutes.post("/:user_id", ensureAuthenticated, verifyUserAuthenticate(["ADMIN"]), teamController.create)
+teamRoutes.put("/:team_id", ensureAuthenticated, verifyUserAuthenticate(["ADMIN"]), teamController.update)
