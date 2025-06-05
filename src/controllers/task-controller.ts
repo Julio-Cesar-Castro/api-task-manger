@@ -7,9 +7,19 @@ import { prisma } from "@/database/database";
 export class TaskController {
   async index(request: Request, response: Response) {
 
-    const tasks = await prisma.task.findMany()
+    const paramsSchema = z.object({
+      user_id: z.string().uuid()
+    })
 
-    return response.json(tasks)
+    const { user_id } = paramsSchema.parse(request.params)
+
+    const tasks = await prisma.task.findMany({ where: { assignedTo: user_id } })
+
+    if (!tasks) {
+      throw new AppError("No task found!")
+    }
+
+    return response.json()
   }
 
   async create(request: Request, response: Response) {

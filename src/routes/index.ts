@@ -6,6 +6,9 @@ import { sessionRoute } from "./session-routes";
 import { teamRoutes } from "./team-routes";
 import { teamMemberRoutes } from "./team-member-routes";
 
+import { verifyUserAuthenticate } from "@/middlewares/verifyUserAuthenticate";
+import { ensureAuthenticated } from "@/middlewares/ensureAuthenticated";
+
 export const routes = Router()
 
 
@@ -14,6 +17,7 @@ routes.use("/task", taskRoute)
 
 routes.use("/session", sessionRoute)
 
-
-routes.use("/team", teamRoutes)
-routes.use("/teams-members", teamMemberRoutes)
+// Privates Routes
+routes.use(ensureAuthenticated)
+routes.use("/team", verifyUserAuthenticate(["ADMIN"]), teamRoutes)
+routes.use("/teams-members", verifyUserAuthenticate(["ADMIN"]), teamMemberRoutes)

@@ -19,8 +19,8 @@ Com intuito de praticar novas tecnolóligas essa API tras algumas regras que dev
 
 ### Tarefas
 - [x] CRUD de tarefas.
-- [ ] Status: "Pendente", "Em progresso", "Concluído".
-- [ ] Prioridade: "Alta", "Média", "Baixa".
+- [x] Status: "Pendente", "Em progresso", "Concluído".
+- [x] Prioridade: "Alta", "Média", "Baixa".
 - [ ] Atribuição de tarefas para membros específicos.
 
 ### Usuário Admin
