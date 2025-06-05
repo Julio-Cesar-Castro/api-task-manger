@@ -9,7 +9,7 @@ collection:
     meta:
       id: fld_d4d25362647240a78b3115d4351e87b0
       created: 1748805494873
-      modified: 1748805559125
+      modified: 1748997134004
       sortKey: -1748805494873
     children:
       - url: "{{ _[''].BASE_URL }}/{{ _[''].RESOURCERS }}"
@@ -32,6 +32,89 @@ collection:
             send: true
             store: true
           rebuildPath: true
+      - url: "{{ _[''].BASE_URL }}/{{ _[''].RESOURCERS
+          }}/4d4657a0-39ae-415a-982b-bdfa702e381b/create/d46c96be-5fd6-4d6d-853\
+          a-95214df0189a"
+        name: Create
+        meta:
+          id: req_02fc0fb34b224778a433401d52393a62
+          created: 1748906772755
+          modified: 1748997178309
+          isPrivate: false
+          sortKey: -1748906772756
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"title": "Trabalho faculdade",
+            	"description": "Organizar coisas da faculdade"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].BASE_URL }}/{{ _[''].RESOURCERS
+          }}/e115093c-aae7-43bd-87e8-5519f5977425/update/724bfd9e-8ae3-4aeb-a6c\
+          a-15eb38d79188"
+        name: Update
+        meta:
+          id: req_1e087d6673344ae088ab6f4445ba9a63
+          created: 1748911025230
+          modified: 1748911666154
+          isPrivate: false
+          sortKey: -1748911025230
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"description": "Olhar a mia"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].BASE_URL }}/{{ _[''].RESOURCERS
+          }}/e115093c-aae7-43bd-87e8-5519f5977425/delete/724bfd9e-8ae3-4aeb-a6c\
+          a-15eb38d79188"
+        name: Remove
+        meta:
+          id: req_345a2f1be3324236833d79e309582b92
+          created: 1748912341749
+          modified: 1748912400069
+          isPrivate: false
+          sortKey: -1748912341749
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
     environment:
       "":
         RESOURCERS: task
@@ -39,7 +122,7 @@ collection:
     meta:
       id: fld_2d711b6cacf54666a7d0ccf3de1728e0
       created: 1748810172993
-      modified: 1748810191826
+      modified: 1748912533925
       sortKey: -1748810172993
     children:
       - url: "{{ _[''].BASE_URL }}/{{ _[''].RESOURCES }}"
@@ -47,7 +130,7 @@ collection:
         meta:
           id: req_5a1b4d5f8f80486c9131ade3ade41db0
           created: 1748810178985
-          modified: 1748812793871
+          modified: 1748998654123
           isPrivate: false
           sortKey: -1748810178985
         method: POST
@@ -55,13 +138,13 @@ collection:
           mimeType: application/json
           text: |-
             {
-            	"name": "Julio Castro",
-            	"email": "juliocastro.contato@gmail.com",
-            	"password": "123456"
+            	"name": "admin",
+            	"email": "admin.contato@gmail.com",
+            	"password": "admin1234",
             }
         parameters:
           - id: pair_4eac160d79c444e1af0ab6a118b0299a
-            disabled: false
+            disabled: true
         headers:
           - name: Content-Type
             value: application/json
@@ -90,11 +173,20 @@ collection:
         meta:
           id: req_6359a4facf924da789e95f7a23c15276
           created: 1748814346952
-          modified: 1748814388928
+          modified: 1749078786015
           isPrivate: false
           sortKey: -1748814346952
         method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"email": "juliocastro.contato@gmail.com",
+            	"password": "123456"
+            }
         headers:
+          - name: Content-Type
+            value: application/json
           - name: User-Agent
             value: insomnia/11.1.0
         settings:
@@ -108,6 +200,145 @@ collection:
     environment:
       "":
         RESOURCES: session
+  - name: Teams
+    meta:
+      id: fld_2d3d60d292a34c98b9998931b20ee367
+      created: 1748907283497
+      modified: 1748907517329
+      sortKey: -1748907283497
+    children:
+      - url: "{{ _[''].BASE_URL }}/{{ _[''].RESOURCES
+          }}/812e2221-cc83-4f11-9396-0367dc68e780"
+        name: Create
+        meta:
+          id: req_f70f16e6b9f443cfa085843be05f0d5f
+          created: 1748907300746
+          modified: 1749080812487
+          isPrivate: false
+          sortKey: -1748907300746
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Grupo de estudos",
+            	"description": "Chamar a galera"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_6359a4facf924da789e95f7a23c15276',
+            'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].BASE_URL }}/{{ _[''].RESOURCES
+          }}/f1aa1c04-a1e5-4b66-8954-507c165ef250"
+        name: Update
+        meta:
+          id: req_b0592cf6a39a450c98c4ddaec815ae40
+          created: 1749129736989
+          modified: 1749135611555
+          isPrivate: false
+          sortKey: -1749129736989
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Grupo de resenha",
+            	"description": "Testando 5"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_6359a4facf924da789e95f7a23c15276',
+            'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    environment:
+      "":
+        RESOURCES: team
+  - name: Teams_Members
+    meta:
+      id: fld_da483585d01048b28691003a533b34fb
+      created: 1749136347575
+      modified: 1749137213203
+      sortKey: -1749136347575
+    children:
+      - url: "{{ _[''].BASE_URL }}/{{ _[''].RESOURCES
+          }}/f1aa1c04-a1e5-4b66-8954-507c165ef250/team/812e2221-cc83-4f11-9396-\
+          0367dc68e780"
+        name: Create
+        meta:
+          id: req_045ee3f6e2a74a0ea6488ff010301f00
+          created: 1749136354472
+          modified: 1749137490658
+          isPrivate: false
+          sortKey: -1749136354472
+        method: POST
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_6359a4facf924da789e95f7a23c15276',
+            'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].BASE_URL }}/{{ _[''].RESOURCES
+          }}/a8c33d94-7552-4236-81b8-b1ee66c14bd1"
+        name: Remove
+        meta:
+          id: req_7a24400ec8e347b987011ef505762db1
+          created: 1749139004126
+          modified: 1749139073655
+          isPrivate: false
+          sortKey: -1749139004126
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_6359a4facf924da789e95f7a23c15276',
+            'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    environment:
+      "":
+        RESOURCES: teams-members
 cookieJar:
   name: Default Jar
   meta:
