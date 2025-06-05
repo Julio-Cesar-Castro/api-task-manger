@@ -21,14 +21,14 @@ Com intuito de praticar novas tecnolóligas essa API tras algumas regras que dev
 - [x] CRUD de tarefas.
 - [x] Status: "Pendente", "Em progresso", "Concluído".
 - [x] Prioridade: "Alta", "Média", "Baixa".
-- [ ] Atribuição de tarefas para membros específicos.
+- [x] Atribuição de tarefas para membros específicos.
 
 ### Usuário Admin
-- [ ] Visualizar e gerenciar todas as tarefas, usuários e times.
+- [x] Visualizar e gerenciar todas as tarefas, usuários e times.
 
 ### Membros
-- [ ] Visualiza tarefas do time.
-- [ ] Pode editar apenas suas tarefas.
+- [x] Visualiza tarefas do time.
+- [x] Pode editar apenas suas tarefas.
 
 ##
 

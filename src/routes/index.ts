@@ -13,11 +13,10 @@ export const routes = Router()
 
 
 routes.use("/user", userRoute)
-routes.use("/task", taskRoute)
-
 routes.use("/session", sessionRoute)
 
 // Privates Routes
 routes.use(ensureAuthenticated)
+routes.use("/task", verifyUserAuthenticate(["ADMIN", "USER"]), taskRoute)
 routes.use("/team", verifyUserAuthenticate(["ADMIN"]), teamRoutes)
 routes.use("/teams-members", verifyUserAuthenticate(["ADMIN"]), teamMemberRoutes)

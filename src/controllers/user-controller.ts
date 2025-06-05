@@ -18,7 +18,7 @@ export class UserController {
     const user = await prisma.user.findFirst({ where: { email } })
 
     if (user) {
-      throw new AppError("User Already exist!")
+      throw new AppError("Email already exist!")
     }
 
     const passwordHashed = hashSync(password, 8)

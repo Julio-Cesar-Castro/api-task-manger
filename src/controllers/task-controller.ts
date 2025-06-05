@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { AppError } from "@/utils/AppError";
 import { z } from "zod"
 import { prisma } from "@/database/database";
@@ -13,13 +13,20 @@ export class TaskController {
 
     const { user_id } = paramsSchema.parse(request.params)
 
-    const tasks = await prisma.task.findMany({ where: { assignedTo: user_id } })
+    const tasks = await prisma.task.findMany({
+      where: { assignedTo: user_id },
+      include: { teams: true }
+    })
 
     if (!tasks) {
       throw new AppError("No task found!")
     }
 
-    return response.json()
+    if (tasks.length === 0) {
+      return response.json([])
+    }
+
+    return response.json(tasks)
   }
 
   async create(request: Request, response: Response) {
@@ -91,7 +98,7 @@ export class TaskController {
       throw new AppError("User not found!")
     }
 
-    const task = await prisma.task.findFirst({ where: { assignedTo: user_id, id: task_id } })
+    const task = await prisma.task.findFirst({ where: { id: task_id } })
 
     if (!task) {
       throw new AppError("Task not found!")
@@ -100,6 +107,33 @@ export class TaskController {
     if (!title && !description) {
       throw new AppError("You should insert a new value in title or description to update")
     }
+
+    const teamMember = await prisma.teamMember.findMany({ where: { userId: user_id } })
+
+    if (!teamMember) {
+      throw new AppError("You don't make part of the group is member")
+    }
+
+    if (user.role === "ADMIN") {
+      await prisma.task.update({
+        data: {
+          title,
+          description,
+          priority,
+          status,
+        },
+        where: {
+          id: task_id
+        }
+      })
+
+      return response.json()
+    }
+
+    if (user.id != task.assignedTo) {
+      throw new AppError("You can't edit your team member tasks")
+    }
+
 
     await prisma.task.update({
       data: {
